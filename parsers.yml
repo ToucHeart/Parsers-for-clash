@@ -109,22 +109,6 @@ parsers: # array
          - 🇺🇸美国
          - 👨‍🎤其他
 
-      - name: 🤖OpenAI
-        type: select
-        proxies:
-         - 🚀URL-TEST
-         - 🎛LOAD-BALANCE
-         - 🕹Fallback
-         - 👆SELECT
-         - DIRECT
-         - 🇭🇰香港
-         - 🐳台湾
-         - 🇯🇵日本
-         - 🇸🇬新加坡
-         - 🇰🇷韩国
-         - 🇺🇸美国
-         - 👨‍🎤其他
-
       - name: 🔍Bing
         type: select
         proxies:
@@ -293,11 +277,12 @@ parsers: # array
         
   # 添加规则
       prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
+        - DOMAIN-KEYWORD,nju,DIRECT
+        - DOMAIN-KEYWORD,openai,🚅Google
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
         - RULE-SET,youtube,🎎YouTube
         - RULE-SET,netflix,📽Netflix
-        - RULE-SET,openai,🤖OpenAI
         - RULE-SET,bing,🔍Bing
         - RULE-SET,bilibiliintl,🛀Bilibiliintl
         - RULE-SET,twitter,🦤Twitter
@@ -464,13 +449,6 @@ parsers: # array
           url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
           path: ./ruleset/bing.yaml
           interval: 86400
-
-        openai: # OpenAI的分流规则
-          type: http
-          behavior: classical
-          url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
-          path: ./ruleset/openai.yaml
-          interval: 86400    
 
         youtube: # YouTube的分流规则
           type: http
