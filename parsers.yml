@@ -279,6 +279,7 @@ parsers: # array
       prepend-rules: # 规则由上往下遍历，如上面规则已经命中，则不再往下处理
         - DOMAIN-KEYWORD,nju,DIRECT
         - DOMAIN-KEYWORD,openai,🚅Google
+        - DOMAIN-KEYWORD,chatgpt,🚅Google        
         - DOMAIN-SUFFIX,jdev.tw,🥷PROXY
         - DOMAIN-SUFFIX,omnivore.app,🥷PROXY
         - RULE-SET,youtube,🎎YouTube
